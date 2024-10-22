@@ -9,8 +9,10 @@ Para poder demostrar y  aprender la creacion y consumo de interfaces de programa
 |--|--|--|--|--|
 |8.|17/10/2024|Nuevo Repositorio del Proyecto Implementado .gitignore |1| ⭐Activa|
 
+
 ### Autor 
 **Antonio Ocpaco Dolores** /[@ANTONIOOCPACODOLORES](http://github.com/ANTONIOOCPACODOLORES)
 Unidad 2
 Aplicaciones Web Orientada a servicios
+
 
