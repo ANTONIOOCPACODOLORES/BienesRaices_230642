@@ -1,0 +1,36 @@
+{
+  "name": "mx.utxj.ti.awos.bienesraices",
+  "version": "1.0.0",
+  "description": "Proyecto de clase para Unidad 2, de la asignatura AWOS utilizamos Node.js",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "Saluda": "index.js",
+    "server": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ANTONIOOCPACODOLORES/BienesRa-ces_230642.git"
+  },
+  "keywords": [
+    "MVC",
+    "Sequelize",
+    "MySQL",
+    "Tailwind",
+    "NodeJS",
+    "Mailtrap",
+    "JWT"
+  ],
+  "author": "Antonio Ocpaco Dolores",
+  "license": "ISC",
+  "homepage": "https://github.com/ANTONIOOCPACODOLORES/BienesRa-ces_230642.git",
+  "dependencies": {
+    "express": "^4.21.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  },
+  "bugs": {
+    "url": "https://github.com/ANTONIOOCPACODOLORES/BienesRa-ces_230642/issues"
+  }
+}

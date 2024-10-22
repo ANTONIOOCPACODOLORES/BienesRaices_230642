@@ -8,9 +8,12 @@ Para poder demostrar y  aprender la creacion y consumo de interfaces de programa
 |no.|Fecha | Descripción |Potenciador|Estatus|
 |--|--|--|--|--|
 |8.|17/10/2024|Nuevo Repositorio del Proyecto Implementado .gitignore |1| ⭐Activa|
+|9.|22/10/2024|Creación de una Aplicación Web usando Express .gitignore |11| ⭐Activa|
+
 
 ### Autor 
 **Antonio Ocpaco Dolores** /[@ANTONIOOCPACODOLORES](http://github.com/ANTONIOOCPACODOLORES)
 Unidad 2
 Aplicaciones Web Orientada a servicios
+
 
