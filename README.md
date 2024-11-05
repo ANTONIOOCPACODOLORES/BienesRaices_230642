@@ -9,7 +9,7 @@ Para poder demostrar y  aprender la creacion y consumo de interfaces de programa
 |--|--|--|--|--|
 |8.|17/10/2024|Nuevo Repositorio del Proyecto Implementado .gitignore |1| ☑️Finalizada|
 |9.|22/10/2024|Creación de una Aplicación Web usando Express .gitignore |12| ☑️Finalizada|
-|9.|24/10/2024|Opreraciones Basicas de un API a través de los verbos HTTP .gitignore |12| ⭐Activa|
+|10.|24/10/2024|Opreraciones Basicas de un API a través de los verbos HTTP .gitignore |12| ☑️Finalizada|
 
 
 ### Autor 
