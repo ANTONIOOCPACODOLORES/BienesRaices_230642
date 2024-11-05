@@ -28,7 +28,11 @@
     "express": "^4.21.1"
   },
   "devDependencies": {
-    "nodemon": "^3.1.7"
+    "autoprefixer": "^10.4.20",
+    "nodemon": "^3.1.7",
+    "postcss": "^8.4.47",
+    "postcss-cli": "^11.0.0",
+    "tailwindcss": "^3.4.14"
   },
   "bugs": {
     "url": "https://github.com/ANTONIOOCPACODOLORES/BienesRa-ces_230642/issues"
