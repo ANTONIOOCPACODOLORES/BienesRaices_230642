@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "Saluda": "index.js",
-    "server": "nodemon index.js"
+    "server": "nodemon index.js",
+    "css": "postcss Public/css/tailwind.css -o Public/css/app.css --watch"
   },
   "repository": {
     "type": "git",
@@ -25,10 +26,16 @@
   "license": "ISC",
   "homepage": "https://github.com/ANTONIOOCPACODOLORES/BienesRa-ces_230642.git",
   "dependencies": {
-    "express": "^4.21.1"
+    "etag": "^1.8.1",
+    "express": "^4.21.1",
+    "pug": "^3.0.3"
   },
   "devDependencies": {
-    "nodemon": "^3.1.7"
+    "autoprefixer": "^10.4.20",
+    "nodemon": "^3.1.7",
+    "postcss": "^8.4.47",
+    "postcss-cli": "^11.0.0",
+    "tailwindcss": "^3.4.14"
   },
   "bugs": {
     "url": "https://github.com/ANTONIOOCPACODOLORES/BienesRa-ces_230642/issues"
