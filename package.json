@@ -26,6 +26,7 @@
   "license": "ISC",
   "homepage": "https://github.com/ANTONIOOCPACODOLORES/BienesRaices_230642.git",
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "dotenv": "^16.4.5",
     "etag": "^1.8.1",
     "express": "^4.21.1",
