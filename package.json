@@ -26,10 +26,12 @@
   "license": "ISC",
   "homepage": "https://github.com/ANTONIOOCPACODOLORES/BienesRaices_230642.git",
   "dependencies": {
+    "2": "^3.0.0",
     "bcrypt": "^5.1.1",
     "dotenv": "^16.4.5",
     "etag": "^1.8.1",
     "express": "^4.21.1",
+    "mysql": "^2.18.1",
     "mysql2": "^3.11.4",
     "pug": "^3.0.3",
     "sequelize": "^6.37.5"
