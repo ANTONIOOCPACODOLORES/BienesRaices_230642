@@ -1,56 +1,42 @@
 import express from 'express';
 import { formularioLogin, formularioRegister, formularioPasswordRecovery } from '../controllers/controllers.js';
 
-const router= express.Router();
+const router = express.Router();
 
+// GET - Lectura de datos e información del servidor al cliente
+// EndPoints: Rutas para acceder a las secciones o funciones de la aplicación web
+router.get("/findByID/:id", (req, res) => {
+    res.send(`Se está solicitando buscar al usuario con ID: ${req.params.id}`);
+});
 
-//GET - Se utiliza para la lectura de datos e información del servidor al cliente
-// EndPoints - Son las rutas para accedes a las secciones o funciones de nuestra aplicacion web
- // 2 componentes de una petición  ruta (a donde voy), función callback (que hago)
-// ":" en una ruta definen de manera posicional los parametros de entrada
-router.get("/findByID/:id", function (request, response) {
-    response.send(`Se esta solicitando buscar al usuario con ID: ${request.params.id}`);
-})     
+// POST - Envío de datos e información del cliente al servidor
+router.post("/newUser/:name/:email/:password", (req, res) => {
+    res.send(`Se ha solicitado la creación de un nuevo usuario de nombre: ${req.params.name}, asociado al correo electrónico: ${req.params.email}, con la contraseña: ${req.params.password}`);
+});
 
-//POST - Se utiliza para el envío de datos e información del cliente al servidor
-router.post("/newUser/:name/:email/:password", function(req,res){
-    res.send(`Se ha solicitado la creación de un nuevo usuario de nombre: ${req.params.name}, asociado al correo electronico: ${req.params.email} con la contraseña: ${req.params.password} `)
-} )
+// PUT - Actualización total de información del cliente al servidor
+router.put("/replaceUserByEmail/:name/:email/:password", (req, res) => {
+    res.send(`Se ha solicitado el reemplazo de toda la información del usuario: ${req.params.name}, con correo: ${req.params.email}, y contraseña: ${req.params.password}`);
+});
 
-//PUT - Se utiliza para la atualización total de información del cliente al servidor
-router.put("/replaceUserByEmail/:name/:email/:password", function(a,b){
-    b.send(`Se ha solicitado el remplazo de toda la información del usuario: ${a.params.name}, con correo: ${a.params.email} y contraseña: ${a.params.password}`)
-})
+// PATCH - Actualización parcial
+router.patch("/updatePassword/:email/:newPassword/:newPasswordConfirm", (req, res) => {
+    const { email, newPassword, newPasswordConfirm } = req.params; // Desestructuración de parámetros
 
-//PATCH - Se utiliza para la actualización  parcial
-router.patch("/updatePassword/:email/:newPassword/:newPasswordConfirm", function(request, response){
-    
-    const {email, newPassword, newPasswordConfirm} = request.params  // Desestrucutración de un objeto 
-
-    if(newPassword === newPasswordConfirm)
-    {
-        response.send(`Se ha solicitado el actualización de la contraseña del usuario con correo: ${email}, se aceptan los cambios ya que la contraseña y confirmación son la misma.`)
-        console.log(newPassword);
-        console.log(newPasswordConfirm);
+    if (newPassword === newPasswordConfirm) {
+        res.send(`Se ha solicitado la actualización de la contraseña del usuario con correo: ${email}. Se aceptan los cambios ya que la contraseña y confirmación son la misma.`);
+    } else {
+        res.send(`Se ha solicitado la actualización de la contraseña del usuario con correo: ${email}, pero se rechaza el cambio dado que la nueva contraseña y su confirmación no coinciden.`);
     }
-    else 
-    { 
-        response.send(`Se ha solicitado el actualización de la contraseña del usuario con correo: ${email} con la nueva contraseña ${newPassword}, pero se rechaza el cambio dado que la nueva contraseña y su confirmación no coinciden.`)
-        console.log(newPassword);
-        console.log(newPasswordConfirm);
-    }
+});
 
-    
-})
-//DELETE
-router.delete("/deleteUser/:email", function(request, response){
-    response.send(`Se ha solicitado la eliminación del usuario asociado al correo: ${request.params.email}`)
-})
+// DELETE - Eliminación de recursos
+router.delete("/deleteUser/:email", (req, res) => {
+    res.send(`Se ha solicitado la eliminación del usuario asociado al correo: ${req.params.email}`);
+});
 
-
-
-
-router.get("/login", formularioLogin /*middleware*/ );
+// Rutas de autenticación
+router.get("/login", formularioLogin);
 router.get("/createAccount", formularioRegister);
 router.get("/passwordRecovery", formularioPasswordRecovery);
 
