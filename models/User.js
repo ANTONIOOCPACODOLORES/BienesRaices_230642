@@ -1,32 +1,35 @@
-import {DataTypes} from 'sequelize'
+import {DataTypes, Sequelize} from 'sequelize'
 import db from '../db/config.js'
-import { Hooks } from 'sequelize/lib/hooks';
+import bcrypt from 'bcrypt'
 
 
-const User = db.define('tbb_users',{
-    name: {
-        type: DataTypes.STRING, 
+const User= db.define('tbb_users', {
+    name:{
+        type: DataTypes.STRING,
         allowNull: false
-    },
-    email: {
-        type: DataTypes.STRING, 
+
+    }, 
+    email:{
+        type: DataTypes.STRING,
         allowNull: false,
         unique: true
     },
-    password: {
+    password:{
         type: DataTypes.STRING,
         allowNull: false
-    }, 
-    token: DataTypes.STRING, 
+    },
+    token: DataTypes.STRING,
     confirmed: DataTypes.BOOLEAN
+    
 },{
-    Hooks:{
-        beforeCreate: async function (user) {
-            //Generamos la clave para el hasheo, se recomiendan 1o rondas de aleatorizacion para no consumir demasiados recursos de de hardware y hacer lento el proceso.
-            const salt = await bcrypt.hash(user.password, salt);
+    hooks:{
+        beforeCreate: async function(user){
+            //generamos la clave para el hasheo, se recomiendan, se recomiendan 10 rondas de aleatorización para no consumir demasiados recursos da hardware y hacer lento el proceso.
+
+            const salt = await bcrypt.genSalt(10)
+            user.password = await bcrypt.hash(user.password, salt);
         }
     }
 })
-
 
 export default User;

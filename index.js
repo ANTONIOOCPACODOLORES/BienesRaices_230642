@@ -29,12 +29,12 @@ app.use(express.static('./public'));
 // Conexión a la base de datos
 try {
     await db.authenticate(); // Verifica las credenciales del usuario
-    db.async(); // Sincroniza las tablas con los modelos
+    await db.sync(); // Sincroniza las tablas con los modelos
     console.log('Conexión correcta a la base de datos');
 } catch (error) {
-    console.log(error);
+    console.error('Error al conectar con la base de datos:', error.message);
+    console.error('Detalles:', error);
 }
-
 
 // Configuramos nuestro servidor web
 const port = process.env.BACKEND_PORT || 3000;
