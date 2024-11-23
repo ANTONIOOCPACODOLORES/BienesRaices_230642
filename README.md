@@ -11,7 +11,7 @@ Para poder demostrar y  aprender la creacion y consumo de interfaces de programa
 |9.|22/10/2024|Creación de una Aplicación Web usando Express .gitignore |12| ☑️Finalizada|
 |10.|24/10/2024|Opreraciones Basicas de un API a través de los verbos HTTP .gitignore |12| ☑️Finalizada|
 |11.|07/11/2024|Implementación de las Pantallas de Registro, Logeo y Recuperación de Contraseña .gitignore |13| ☑️Finalizada|
-|12.|11/11/2024| .gitignore |11| 😊Activa|
+|12.|22/11/2024|Implementación de validación en formulario y duplicidad en base de datos.gitignore |11|☑️Finalizada|
 
 
 
