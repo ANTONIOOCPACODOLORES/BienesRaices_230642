@@ -1,27 +1,35 @@
-// Ejemplo de activación de HOT RELOAD
-/*console.log("Hola desde NodeJS, esto esta en hot reload")*/
-
-/*const express = require('express'); */
 import express from 'express';
-import generalRoutes from './Routes/GeneralRoutes.js'
-import userRoutes from './Routes/userRouters.js'
-import db from './db/config.js'
-import dotenv from 'dotenv'
+import generalRoutes from './Routes/GeneralRoutes.js';
+import userRoutes from './Routes/userRouters.js';
+import csrf from 'csurf';
+import db from './db/config.js';
+import dotenv from 'dotenv';
+import cookieParser from 'cookie-parser';
 
-dotenv.config({path: '.env'})
+// Cargar las variables de entorno
+dotenv.config({ path: '.env' });
 
-//const express= require(`express`); //declaración de objeto que permite entrar al protocolo http y leer páginas
-//importar la libreria para crear un servidos web
+// Instanciar nuestra aplicación web
+const app = express();
 
-//Instanciar nuestra aplicación web
-const app = express()
-
-// Habilitar la lectura de datos de formularios
+// Middleware para leer datos de formularios
 app.use(express.urlencoded({ extended: true }));
 
-// Configurar Templeate Engine - Habilitamos PUG
-app.set('view engine', 'pug')
-app.set('views', './views')
+// Middleware para habilitar cookie-parser
+app.use(cookieParser());
+
+// Habilitar CSRF con cookies
+app.use(csrf({ cookie: true }));
+
+// Middleware para asignar el token CSRF a las vistas
+app.use((req, res, next) => {
+    res.locals.csrfToken = req.csrfToken(); // Genera y asigna el token CSRF
+    next();
+});
+
+// Configurar Template Engine - PUG
+app.set('view engine', 'pug');
+app.set('views', './views');
 
 // Definir la carpeta pública de recursos estáticos (assets)
 app.use(express.static('./public'));
@@ -36,12 +44,12 @@ try {
     console.error('Detalles:', error);
 }
 
-// Configuramos nuestro servidor web
+// Routing - Enrutamiento para peticiones
+app.use('/', generalRoutes); // Rutas generales
+app.use('/auth', userRoutes); // Rutas de autenticación
+
+// Configuración del puerto del servidor
 const port = process.env.BACKEND_PORT || 3000;
 app.listen(port, () => {
     console.log(`La aplicación ha iniciado en el puerto: ${port}`);
-})
-
-// Routing - Enrutamiento para peticiones
-app.use('/', generalRoutes);
-app.use('/auth', userRoutes);
+});
