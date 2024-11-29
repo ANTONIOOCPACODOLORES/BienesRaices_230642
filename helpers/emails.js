@@ -16,16 +16,24 @@ const emailAfterRegister = async (newUserData) => {
     const { email, name, token } = newUserData;
 
     await transport.sendMail({
+
         from: 'bienesraices_230642.com',
         to: email,
-        subject: 'Bienvenido/a a BienesRaices_230369',
-        text: 'Ya casi puedes usar nuestra plataforma, sola falta...',
+        subject: 'Solicitud de actualización de contraseña en BienesRaices.com',
+        text: 'Por favor actualiza tu contraseña para ingresar a la plataforma',
         html: `<p>Hola, <span style="color:red">${name}</span>, <br>
-        Bienvenido a la plataforma de BienesRaices, el sitio seguro donde podrás buscar, comprar y ofertar propiedades a través de Internet. <br>
-        <p>Ya solo necesitamos confirmes la cuenta que creaste dando click en la siguiente liga: <a href="${process.env.BACKEND_DOMAIN}:${process.env.BACKEND_PORT}/auth/confirmAccount/${token}">Confirmar cuenta</a></p><br>
-        <p>Si tú no has creado la cuenta, ignora este mensaje.</p>`,
+        Haz reportado el olvido o perdida de tu contraseña para acceder a tu cuenta de BienesRaices. <br>
+        <p>Solo necesitamos confirmes la cuenta que creaste dando click en la siguiente liga: <a href="${process.env.BACKEND_DOMAIN}:${process.env.BACKEND_PORT}/auth/confirmAccount/${token}">Confirmar cuenta</a></p><br>
+        <p>Actualizar contraseña</p>`,
     });
 };
+
+
+
+
+
+
+
 
 const passwordRecoveryEmail = async (data) => {
     const transport = nodemailer.createTransport({

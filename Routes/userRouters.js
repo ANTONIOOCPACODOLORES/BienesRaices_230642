@@ -1,5 +1,5 @@
 import express from 'express';
-import { formularioLogin, formularioRegister, formularioPasswordRecovery } from '../controllers/controllers.js';
+import { formularioLogin, formularioRegister, formularioPasswordRecovery, createNewUser, confirm,passwordReset, VerifyTokenPasswordChange,updatePassword } from '../controllers/controllers.js';
 
 const router = express.Router();
 
@@ -38,6 +38,12 @@ router.delete("/deleteUser/:email", (req, res) => {
 // Rutas de autenticación
 router.get("/login", formularioLogin);
 router.get("/createAccount", formularioRegister);
+router.get("confirmAccount/:token",confirm)
 router.get("/passwordRecovery", formularioPasswordRecovery);
+router.get("/passwordRecovery:token",passwordReset)
 
+
+//Actualizar contraseñas
+router.get("/passwordRecovery/:token",VerifyTokenPasswordChange)
+router.get("/passwordRecovery", updatePassword);
 export default router;

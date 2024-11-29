@@ -32,21 +32,23 @@ const formularioPasswordRecovery = (request, response) => {
 };
 
 const resetPassword = async (req, res) => {
-    await check('correo_usuario')
-        .notEmpty().withMessage('El correo electrónico es un campo obligatorio')
-        .isEmail().withMessage('El correo electrónico no tiene el formato correcto')
-        .run(req);
-
+    //console.log("validando los datos para la recuperacion de la contraseña")
+    //Validacion de los campos que se reciben del formulario
+    //Validacion del frontEnd
+    await check('correo_usuario').notEmpty().withMessage("El correo electrónico es un campo obligatorio").isEmail().withMessage('El correo electrónico no tiene el formato correcto').run(Request);
     let result = validationResult(req);
+    //verificamos si hay errores de validación
 
     if (!result.isEmpty()) {
+        console.log("Hay errores")
         return res.render('auth/passwordRecovery', {
-            page: 'Recupera tu acceso a Bienes Raíces',
-            csrfToken: req.csrfToken(),
-            errors: result.array()
+            page: 'Error al intentar resetear la contraseña',
+            errors: result.array(),
+            csrfToken: req.csrfToken()     
         });
     }
 
+    //Desestructurar los parametros del request
     const { correo_usuario } = req.body;
 
     const user = await User.findOne({ where: { email: correo_usuario } });
