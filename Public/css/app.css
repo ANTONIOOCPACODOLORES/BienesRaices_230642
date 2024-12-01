@@ -624,6 +624,10 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(61 0 29 / var(--tw-bg-opacity));
 }
+.bg-indigo-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(79 70 229 / var(--tw-bg-opacity));
+}
 .p-2 {
   padding: 0.5rem;
 }
@@ -730,6 +734,14 @@ video {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
+.text-gray-500 {
+  --tw-text-opacity: 1;
+  color: rgb(107 114 128 / var(--tw-text-opacity));
+}
+.text-gray-600 {
+  --tw-text-opacity: 1;
+  color: rgb(75 85 99 / var(--tw-text-opacity));
+}
 .decoration-2 {
   text-decoration-thickness: 2px;
 }
@@ -755,6 +767,10 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(150 74 79 / var(--tw-bg-opacity));
 }
+.hover\:bg-red-600:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(220 38 38 / var(--tw-bg-opacity));
+}
 .hover\:text-indigo-400:hover {
   --tw-text-opacity: 1;
   color: rgb(129 140 248 / var(--tw-text-opacity));
@@ -770,4 +786,10 @@ video {
 }
 .hover\:decoration-vino:hover {
   text-decoration-color: #3D001D;
+}
+.hover\:decoration-red-600:hover {
+  text-decoration-color: #dc2626;
+}
+.hover\:decoration-2:hover {
+  text-decoration-thickness: 2px;
 }
