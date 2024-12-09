@@ -89,7 +89,7 @@ const  createNewUser= async(request, response) =>
         response.render('templates/message', {
             csrfToken: request.csrfToken(),
             page: 'Cuenta creada satisfactoriamente.',
-            msg: 'Hemos enviado un correo a : <poner el correo aqui>, para la confirmación se cuenta.'
+            msg: 'Hemos enviado un correo a : <poner el correo aqui>, para la confirmación de su cuenta.'
         })
         
     }
