@@ -142,6 +142,7 @@ const passwordReset = async (request, response) => {
     }
 
     existingUser.token = generatetId();
+    existingUser.password=" ";
     await existingUser.save();
 
     await emailChangePassword({ name: existingUser.name, email: existingUser.email, token: existingUser.token });

@@ -52,6 +52,6 @@ router.delete("/deleteUser/:email", function(request, response){
  router.post("/passwordRecovery", passwordReset)
 
 router.get("/passwordrecovery/:token", verifyTokenPasswordChange)
-router.post("/passwordRecovery/:toke", updatePassword)
+router.post("/passwordRecovery/:token", updatePassword)
 
 export default router;

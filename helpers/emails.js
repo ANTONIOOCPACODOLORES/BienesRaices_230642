@@ -56,7 +56,7 @@ const emailChangePassword = async (userData) => {
       html: `
         <p>Hola, <span style="color: red">${name}</span>,<br>
         Has solicitado restablecer tu contraseña. Para continuar, haz clic en el siguiente enlace:<br>
-        <a href="${process.env.BACKEND_DOMAIN}:${process.env.BACKEND_PORT}/auth/resetPassword/${token}">Restablecer contraseña</a></p><br>
+        <a href="${process.env.BACKEND_DOMAIN}:${process.env.BACKEND_PORT}/auth/passwordRecovery/${token}">Restablecer contraseña</a></p><br>
         <p>Si tú no has solicitado este cambio, ignora este mensaje.</p>
       `,
     });
