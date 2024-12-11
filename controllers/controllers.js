@@ -190,12 +190,16 @@ const updatePassword = async (request, response) => {
         });
     }
 
+    //Validar campos del formulario
     await check('new_password')
         .notEmpty().withMessage("La contraseña es obligatoria.")
         .isLength({ min: 8 }).withMessage("La contraseña debe tener al menos 8 caracteres.").run(request);
-    await check('confirm_new_password')
-        .equals(request.body.new_password).withMessage("Las contraseñas no coinciden.").run(request);
 
+    await check('new_password2')
+        .notEmpty().withMessage("La confirmación es obligatoria")
+        .equals(request.body.new_password).withMessage("Las contraseñas no coinciden.").run(request)
+
+    //Validamos resultados
     const result = validationResult(request);
 
     if (!result.isEmpty()) {
@@ -211,7 +215,7 @@ const updatePassword = async (request, response) => {
     userTokenOwner.token = null;
     await userTokenOwner.save();
 
-    response.render('auth/accountConfirmed', {
+    response.render('auth/confirmAccount', {
         page: 'Contraseña actualizada',
         msg: 'Tu contraseña ha sido actualizada exitosamente.',
         error: false,
