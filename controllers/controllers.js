@@ -127,6 +127,9 @@ const passwordReset = async (request, response) => {
             page: 'Error al solicitar el cambio de contraseña',
             errors: result.array(),
             csrfToken: request.csrfToken(),
+            user: {
+                email:request.doby.correo_usuario,
+            },
         });
     }
 
@@ -138,6 +141,7 @@ const passwordReset = async (request, response) => {
             page: 'Error',
             csrfToken: request.csrfToken(),
             errors: [{ msg: 'No existe una cuenta confirmada con este correo.' }],
+            user:{email},
         });
     }
 
@@ -182,6 +186,7 @@ const updatePassword = async (request, response) => {
             page: 'Error',
             errors: [{ msg: 'Token inválido o expirado' }],
             csrfToken: request.csrfToken(),
+            user: {token},
         });
     }
 
@@ -198,6 +203,7 @@ const updatePassword = async (request, response) => {
             page: 'Error al restablecer la contraseña',
             errors: result.array(),
             csrfToken: request.csrfToken(),
+            user:{token},
         });
     }
 
