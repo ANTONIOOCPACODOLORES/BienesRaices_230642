@@ -4,7 +4,7 @@ block contenido
     div 
         h1.text-center.text-4xl.my-10.font-extrabold.text-negro Bienes
             span.font-normal.text-vino Raíces
-            
+
         h2.text-center.font-extrabold.text-2xl.text-negro= page
 
         //- Mostrar errores si existen
@@ -19,37 +19,21 @@ block contenido
                     //- Campo para el token CSRF
                     input(type="hidden" name="_csrf" value=csrfToken)
 
-                    div 
-                        label.block.text-sm.uppercase.text-blanco.mb-2.font-bold Nombre Completo:
-                        input#name.w-full.px-3.py-2.border.border-gray-300.rounded-xl.placeholder-gray-400(
-                            type="text" 
-                            placeholder="Ingresa tu nombre con apellidos" 
-                            name="nombre_usuario" 
-                            value=(user.name || '')
-                        )  
-                    div    
-                        label.block.text-sm.uppercase.text-blanco.mb-2.font-bold Correo electrónico:
-                        input#email.w-full.px-3.py-2.border.border-gray-300.rounded-xl.placeholder-gray-400(
-                            type="email" 
-                            placeholder="ej. usuario@dominio.com" 
-                            name="correo_usuario" 
-                            value=(user.email || '')
-                        )  
-                    div    
-                        label.block.text-sm.uppercase.text-blanco.mb-2.font-bold Contraseña:
-                        input#password.w-full.px-3.py-2.border.border-gray-300.rounded-xl.placeholder-gray-400(
-                            type="password" 
-                            placeholder="Mínimo de 8 caracteres" 
-                            name="pass_usuario"
-                        )  
+                    div     
+                        label.block.text-sm.uppercase.text-negro-600.mb-2.font-nold Nombre Completo: 
+                        input#name.w-full.px-3.py-2.border.border-gray-300.rounded-xl.placeholder.gray-400(type="text" placeholder="Ingresa tu nombre con apellidos" name="nombre_usuario" value= user? user.name:'')
                     div
-                        label.block.text-sm.uppercase.text-blanco.mb-2.font-bold Confirmación Contraseña:
-                        input#password-confirm.w-full.px-3.py-2.border.border-gray-300.rounded-xl.placeholder-gray-400(
-                            type="password" 
-                            placeholder="Mínimo de 8 caracteres, igual a la anterior" 
-                            name="pass2_usuario"
-                        )  
-                    div.flex.items-center.justify-between
-                        a.text-rosaF.text-xs(href="/auth/login" class="hover:underline decoration-2 hover:decoration-blanco") ¿Ya tienes una cuenta? Inicia sesión
-                        a.text-rosaF.text-xs(href="/auth/passwordRecovery" class="hover:underline decoration-2 hover:decoration-blanco") Olvidé mi contraseña
-                    input(class="w-full bg-vino hover:bg-rosaF text-blanco font-bold py-3 cursor-pointer rounded-lg" type="submit" value="Crear cuenta")
+                        label.block.text-sm.uppercase.text-negro-600.mb-2.font-nold Correo Electrónico: 
+                        input#email.w-full.px-3.py-2.border.border-gray-300.rounded-xl.placeholder.gray-400(type="email" placeholder="ej: usuario@dominio.com" name="correo_usuario" value= user?user.email:'')
+                    div
+                        label.block.text-sm.uppercase.text-negro-600.mb-2.font-nold Contraseña: 
+                        input#password.w-full.px-3.py-2.border.border-gray-300.rounded-xl.placeholder.gray-400(type="password" placeholder="mínimo de 8 carácteres" name="pass_usuario")
+                    div
+                        label.block.text-sm.uppercase.text-negro-600.mb-2.font-nold Confirmación Contraseña: 
+                        input#password-confirm.w-full.px-3.py-2.border.border-gray-300.rounded-xl.placeholder.gray-400(type="password" placeholder="mínimo de 8 carácteres, igual a la anterior" name="pass2_usuario")
+
+                    div.flex.items-center.justify-between 
+                        a.text-negro-500.text-xs(href="/auth/login" class="hover:underline hover:decoration-2 hover:decoration-rosaF-600") ¿Ya tienes cuenta? Inicia Sesión
+                        a.text-negro-500.text-xs(href="/auth/passwordRecovery" class="hover:underline decoration-2 hover:decoration-blanco-600") Olvide mi contraseña... 
+
+                    input(class="w-full bg-vino-600 hover:bg-rosaF-600 text-blanco font-bold py-3 cursor-pointer rounded-lg" type="submit" value="Crear Cuenta")

@@ -1,10 +1,11 @@
-import Sequelize from 'sequelize'
-import dontenv from 'dotenv'
+import Sequelize from 'sequelize';
+import dontenv from 'dotenv';
+
 dontenv.config({path:'.env'})
 //import { noBoolOperatorAliases } from 'sequelize/lib/utils/deprecations';
 
 const db = new Sequelize(process.env.BD_NOMBRE,process.env.BD_USER,process.env.BD_PASS,{
-    host:process.env.BD_DOMAIN,
+    host:process.env.BD_HOST,
     port:process.env.BD_PORT,
     dialect:'mysql',
     define:{
@@ -14,10 +15,11 @@ const db = new Sequelize(process.env.BD_NOMBRE,process.env.BD_USER,process.env.B
         max:5,
         min:0,
         acquire:3000,
-        idlle:1000
+        idle:10000
 
     },
-    operatorAliases:false
+    operatorAliases:false,
+    timezone: '-06:00' 
 });
 
 export default db;
